@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho - Pizzaria</title>
+  <link rel="stylesheet" href="/css/carrinho.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Seu Carrinho</h1>
+      <a href="menu.html" class="btn btn-voltar">Voltar</a>
+    </header>
+
+    <main class="main">
+      <div class="item-carrinho" id="item-carrinho">
+        <h2 class="item-carrinho__title">Item Adicionado</h2>
+        <p><strong>Pizza:</strong> <span id="pizza-name">-</span></p>
+        <p><strong>Preço:</strong> R$ <span id="pizza-price">-</span></p>
+        <button id="remove-btn" class="btn btn-remove">Remover</button>
+      </div>
+      <button class="btn btn-finalizar">Finalizar Compra</button>
+    </main>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const pizzaName = params.get('pizza') || '-';
+    const pizzaPrice = params.get('preco') || '-';
+    document.getElementById('pizza-name').textContent = pizzaName;
+    document.getElementById('pizza-price').textContent = pizzaPrice;
+
+    const removeBtn = document.getElementById('remove-btn');
+    const itemCarrinho = document.getElementById('item-carrinho');
+    removeBtn.addEventListener('click', () => {
+      itemCarrinho.remove();
+      const emptyMsg = document.createElement('p');
+      emptyMsg.textContent = 'Seu carrinho está vazio.';
+      emptyMsg.classList.add('empty-msg');
+      document.querySelector('.main').prepend(emptyMsg);
+    });
+  </script>
+</body>
+</html>

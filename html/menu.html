@@ -1,0 +1,63 @@
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio - Pizzaria</title>
+  <link rel="stylesheet" href="/css/menu.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="logo">Pizzaria</h1>
+      <a href="carrinho.html" class="btn btn-carrinho">Carrinho</a>
+    </header>
+
+    <main class="main">
+      <h2 class="title">Cardápio</h2>
+      <div class="cardapio">
+        <div class="card item">
+          <img src="/imgs/pizzacal.jpg" alt="Pizza de Calabresa" class="card__image">
+          <div class="card__info">
+            <h3 class="card__title">Pizza de Calabresa</h3>
+            <p class="card__price">R$ 45,00</p>
+            <p class="card__price">8 Fatias</p>
+            <form action="detalhes.html" method="get">
+              <input type="hidden" name="pizza" value="Calabresa">
+              <input type="hidden" name="preco" value="45.00">
+              <button type="submit" class="btn btn-add">Ver Detalhes</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="card item">
+          <img src="/imgs/618283-PIZZA-ARTESANAL-DE-CALABRESA-SWIFT_3.png" alt="Pizza 4 Queijos" class="card__image">
+          <div class="card__info">
+            <h3 class="card__title">Pizza 4 Queijos</h3>
+            <p class="card__price">R$ 49,00</p>
+            <p class="card__price">8 Fatias</p>
+            <form action="detalhes.html" method="get">
+              <input type="hidden" name="pizza" value="4 Queijos">
+              <input type="hidden" name="preco" value="49.00">
+              <button type="submit" class="btn btn-add">Ver Detalhes</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="card item">
+          <img src="/imgs/pizza-margherita-receita.png" alt="Pizza de Marguerita" class="card__image">
+          <div class="card__info">
+            <h3 class="card__title">Pizza de Marguerita</h3>
+            <p class="card__price">R$ 47,00</p>
+            <p class="card__price">8 Fatias</p>
+            <form action="detalhes.html" method="get">
+              <input type="hidden" name="pizza" value="Marguerita">
+              <input type="hidden" name="preco" value="47.00">
+              <button type="submit" class="btn btn-add">Ver Detalhes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

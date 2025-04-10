@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes da Pizza - Pizzaria</title>
+  <link rel="stylesheet" href="/css/detalhes.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="logo">Pizzaria</h1>
+      <div>
+        <a href="menu.html" class="btn btn-voltar">Menu</a>
+        <a href="carrinho.html" class="btn btn-carrinho">Carrinho</a>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="card detalhes-card">
+        <img id="pizza-image" src="" alt="" class="card__image">
+        <div class="card__info">
+          <h2 id="pizza-name" class="card__title"></h2>
+          <p id="pizza-price" class="card__price"></p>
+          <form action="carrinho.html" method="get">
+            <input type="hidden" name="pizza" id="pizza-input">
+            <input type="hidden" name="preco" id="preco-input">
+            <button type="submit" class="btn btn-add">Adicionar ao Carrinho</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('pizza') || '';
+    const price = params.get('preco') || '';
+    document.getElementById('pizza-name').textContent = name;
+    document.getElementById('pizza-price').textContent = 'R$ ' + price.replace('.', ',');
+    document.getElementById('pizza-input').value = name;
+    document.getElementById('preco-input').value = price;
+    const imgMap = {
+      'Calabresa': '/imgs/pizzacal.jpg',
+      '4 Queijos': '/imgs/pizza4q.png',
+      'Marguerita': '/imgs/pizza-margherita-receita.png'
+    };
+    document.getElementById('pizza-image').src = imgMap[name] || '';
+    document.getElementById('pizza-image').alt = 'Pizza de ' + name;
+  </script>
+</body>
+</html>
